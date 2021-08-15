@@ -1,13 +1,24 @@
 {
   "name": "api-cssbattle",
   "version": "1.0.0",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "ts-watch": "tsc --watch",
+    "ts-build": "tsc --build",
+    "nodemon": "nodemon -e js -w dist --exec \"node dist\"",
+    "start": "concurrently \"yarn ts-watch\" \"yarn nodemon\""
+  },
   "dependencies": {
-    "typescript": "^4.3.5"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.30",
     "@types/node": "^16.6.1",
-    "axios": "^0.21.1"
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12",
+    "typescript": "^4.3.5"
   }
 }
