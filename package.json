@@ -1,0 +1,20 @@
+{
+  "name": "monorepo-discord-bots",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Edixon Piña",
+    "email": "edixonalbertto@gmail.com",
+    "url": "https://www.edixonalberto.com"
+  },
+  "contributes": {},
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "api": "yarn workspace api-cssbattle"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}

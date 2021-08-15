@@ -1,0 +1,13 @@
+{
+  "name": "api-cssbattle",
+  "version": "1.0.0",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.30",
+    "@types/node": "^16.6.1",
+    "axios": "^0.21.1"
+  }
+}
