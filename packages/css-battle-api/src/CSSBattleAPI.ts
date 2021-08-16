@@ -4,7 +4,7 @@ import { TNetworks, TProfile, TRanking } from './types'
 
 const cheerioWrapper = new CheerioWrapper('https://cssbattle.dev')
 
-class CSSbattleApi {
+class CSSBattleAPI {
   public static async profile(username: string): Promise<TProfile | null> {
     try {
       const $ = await cheerioWrapper.load(`/player/${username}`)
@@ -38,4 +38,4 @@ class CSSbattleApi {
   }
 }
 
-export { CSSbattleApi }
+export { CSSBattleAPI }

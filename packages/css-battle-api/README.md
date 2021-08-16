@@ -1,4 +1,4 @@
-# Api CSS Battle
+# CSS Battle API
 
 This es a client api to obtain _public_ information from the
 [CSS Battle](https://cssbattle.dev) page

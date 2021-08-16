@@ -1,4 +1,4 @@
-# CSS Battle
+# Monorepo CSS Battle
 
 Monorepo with several projects related to the [CSS Battle](https://cssbattle.dev) page
 
@@ -9,5 +9,5 @@ Monorepo with several projects related to the [CSS Battle](https://cssbattle.dev
 
 ## Packages
 
-- [Api CSS Battle](./packages/api-cssbattle): This es a client api to obtain _public_
-  information from the CSS Battle page
+- [CSS Battle API](./packages/css-battle-api): Client api to obtain _public_ information
+  from the CSS Battle page

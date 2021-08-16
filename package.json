@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-discord-bots",
+  "name": "monorepo-css-battle",
   "license": "MIT",
   "private": true,
   "author": {
@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "scripts": {
-    "api": "yarn workspace api-cssbattle"
+    "api": "yarn workspace css-battle-api"
   },
   "devDependencies": {
     "prettier": "^2.3.2"
