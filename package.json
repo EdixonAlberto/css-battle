@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "scripts": {
-    "api": "yarn workspace css-battle-api"
+    "api": "yarn workspace @edixon/css-battle-api"
   },
   "devDependencies": {
     "prettier": "^2.3.2"

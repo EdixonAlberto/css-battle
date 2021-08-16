@@ -1,6 +1,6 @@
 # Monorepo CSS Battle
 
-Monorepo with several projects related to the [CSS Battle](https://cssbattle.dev) page
+Monorepo with several projects related with the [CSS Battle](https://cssbattle.dev) page
 
 ## Technologies
 
