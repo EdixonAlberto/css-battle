@@ -1663,6 +1663,15 @@ gulp-cli@^2.2.0:
     v8flags "^3.2.0"
     yargs "^7.1.0"
 
+gulp-prettier@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-prettier/-/gulp-prettier-4.0.0.tgz#95e783084d1efbdd588625b2a8214e11d43f2557"
+  integrity sha512-REx99tBRRKJD7qLPaKpplReM9cq2vFvqhMbcUZtJEVjxGjb5Ji+gN9vi8bsM8UhnDV+l0Zrf5x6L4uZiDmvGFQ==
+  dependencies:
+    plugin-error "^1.0.1"
+    prettier "^2.0.0"
+    through2 "^4.0.2"
+
 gulp-rimraf@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gulp-rimraf/-/gulp-rimraf-1.0.0.tgz#ccb3e639447e95831601f3d6d678bd3f33962285"
@@ -2934,7 +2943,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@^2.3.2:
+prettier@^2.0.0, prettier@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
   integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
@@ -3072,7 +3081,7 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
-"readable-stream@2 || 3", readable-stream@^3.5.0, readable-stream@^3.6.0:
+"readable-stream@2 || 3", readable-stream@3, readable-stream@^3.5.0, readable-stream@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.0.tgz#337bbda3adc0706bd3e024426a286d4b4b2c9198"
   integrity sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
@@ -3655,6 +3664,13 @@ through2@^3.0.1:
   dependencies:
     inherits "^2.0.4"
     readable-stream "2 || 3"
+
+through2@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/through2/-/through2-4.0.2.tgz#a7ce3ac2a7a8b0b966c80e7c49f0484c3b239764"
+  integrity sha512-iOqSav00cVxEEICeD7TjLB1sueEL+81Wpzp2bY17uZjZN0pWZPuo4suZ/61VujxmqSGFfgOcNuTZ85QJwNZQpw==
+  dependencies:
+    readable-stream "3"
 
 "through@>=2.2.7 <3":
   version "2.3.8"

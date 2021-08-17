@@ -1,10 +1,16 @@
 # CSS Battle API
 
+[![](https://img.shields.io/badge/author-Edixon_Piña-blue.svg?&style=for-the-badge)](https://edixonalberto.com)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
+
 Client api to obtain _public_ information from the [CSS Battle](https://cssbattle.dev)
-page
+page.
 
 Created with NodeJS and Typescript, all types are exposed for use.
 <img src="../../.github/img/typescript.png" width="17px" alt="Logo typescript" /> + 💗
+
+> **Nota:** For now can only get the profile information of users, but later methods will
+> be created to obtain: "leader board", "battle targets", etc.
 
 ## Installation
 
@@ -31,13 +37,13 @@ CSSBattleAPI.profile('USERNAME').then(profile => {
 Using typescript and async/await.
 
 ```ts
-import { CSSBattleAPI, TProfile, TRanking } from '@edixon/css-battle-api'
+import { CSSBattleAPI, TRanking } from '@edixon/css-battle-api'
 
-async function getRanking(username: string): Promise<TRanking> {
+async function getRanking(username: string): Promise<TRanking | null> {
   try {
-    const profile: TProfile = await CSSBattleAPI.profile(username)
+    const profile = await CSSBattleAPI.profile(username)
 
-    return profile.ranking
+    return profile?.ranking || null
   } catch (error) {
     console.error('ERROR ->', error.message)
     throw new Error(error)
@@ -72,3 +78,7 @@ type TRanking = {
   battlesPlayed: number
 }
 ```
+
+## License
+
+MIT &copy; [Edixon Piña](https://github.com/EdixonAlberto)

@@ -1,10 +1,11 @@
+const { resolve } = require('path')
 const fs = require('fs')
 
-export function createHeaderMessage() {
+exports.createHeaderMessage = () => {
   const pkgMain = JSON.parse(
     fs.readFileSync(resolve('../', '../', 'package.json'), 'utf8')
   )
-  const pkgApi = JSON.parse(fs.readFileSync('package.json'), 'utf8')
+  const pkgApi = JSON.parse(fs.readFileSync(resolve('package.json')), 'utf8')
   const year = new Date().getFullYear().toString()
 
   return `/*!

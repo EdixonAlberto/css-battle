@@ -1,16 +1,19 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Client api to obtain public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
   "keywords": [
     "api",
-    "cssbattle",
-    "cssbattle-solutions",
+    "css-battle",
+    "css-battle-api",
+    "css-battle-solutions",
     "nodejs",
     "typescript"
   ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "ts-build": "tsc --build",
@@ -28,6 +31,7 @@
     "@types/node": "^16.6.1",
     "browserify": "^17.0.0",
     "gulp": "^4.0.2",
+    "gulp-prettier": "^4.0.0",
     "gulp-rimraf": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.12",

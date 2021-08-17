@@ -1,0 +1,10 @@
+# FOLDERS
+src/
+tools/
+demo/
+tests/
+
+# FILES
+gulpfile.js
+tsconfig.json
+*.log
