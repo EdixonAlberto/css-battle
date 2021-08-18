@@ -60,4 +60,4 @@ function minify(done) {
   done()
 }
 
-task('build', series(format, clean, transpile, bundle))
+task('build', series(format, bundle, clean, transpile, ))
