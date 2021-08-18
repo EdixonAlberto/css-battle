@@ -9,5 +9,5 @@ Monorepo with several projects related with the [CSS Battle](https://cssbattle.d
 
 ## Packages
 
-- [CSS Battle API](./packages/css-battle-api): Client api to obtain _public_ information
+- [CSS Battle API](./packages/css-battle-api): Client api to obtain **public** information
   from the CSS Battle page

@@ -8,3 +8,4 @@ tests/
 gulpfile.js
 tsconfig.json
 *.log
+test.js

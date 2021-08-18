@@ -15,11 +15,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
     "ts-build": "tsc --build",
-    "nodemon": "nodemon -e ts -w src --exec \"yarn ts-build && node dist\"",
-    "gulp": "gulp build",
-    "start": "yarn clean && yarn nodemon"
+    "dev": "nodemon -e ts -w src --exec \"yarn start\"",
+    "build": "gulp build",
+    "start": "yarn ts-build && node test.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -35,6 +34,12 @@
     "gulp-rimraf": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
     "typescript": "^4.3.5"
+  },
+  "homepage": "https://github.com/EdixonAlberto/monorepo-css-battle/tree/main/packages/css-battle-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdixonAlberto/monorepo-css-battle"
   }
 }
