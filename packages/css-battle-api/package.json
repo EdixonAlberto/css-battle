@@ -1,6 +1,6 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Client api to obtain public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
@@ -27,7 +27,6 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.30",
-    "@types/node": "^16.6.1",
     "browserify": "^17.0.0",
     "gulp": "^4.0.2",
     "gulp-prettier": "^4.0.0",

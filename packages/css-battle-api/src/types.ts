@@ -4,7 +4,7 @@ export type TProfile = {
   username: string
   job: string | null
   country: string | null
-  networks: TNetworks
+  networks: TNetworks | null
   ranking: TRanking
 }
 
@@ -13,7 +13,7 @@ export type TNetworks = {
   github: string | null
   twitter: string | null
   codepen: string | null
-} | null
+}
 
 export type TRanking = {
   rank: number

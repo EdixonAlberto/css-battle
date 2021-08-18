@@ -21,7 +21,7 @@ type TPlayer = {
   whatYouDo?: string
   userId: string
   isAvailableForHire: boolean
-  links?: import('../types').TNetworks
+  links?: TLink
   avatar: string
   isPro: boolean
   username: string
@@ -31,6 +31,13 @@ type TPlayer = {
     theme: string
   }
   displayName: string
+}
+
+type TLink = {
+  website?: string
+  github?: string
+  twitter?: string
+  codepen?: string
 }
 
 type TRank = {

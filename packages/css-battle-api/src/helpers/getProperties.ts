@@ -1,18 +1,22 @@
 import axios, { AxiosResponse } from 'axios'
 import { TNetworks, TRanking } from '../types'
+import { ENetworks } from '../entities/enumerations'
 
-export function getNetworks(links: any = null): TNetworks | null {
+export function getNetworks(links?: TLink): TNetworks | null {
   if (links) {
-    const urlWrapper = (domain: string): string | null => {
-      if (links[domain]) return `https://${domain}.com/${links[domain]}`
-      else return null
-    }
+    let networks = {} as TNetworks
 
-    const networks: TNetworks = {
-      website: links['website'] || null,
-      github: urlWrapper('github'),
-      twitter: urlWrapper('twitter'),
-      codepen: urlWrapper('codepen')
+    for (const domain in ENetworks) {
+      const username = links[domain as ENetworks] || null
+
+      const link =
+        domain === ENetworks.website
+          ? username
+          : username
+          ? `https://${domain}.com/${username}`
+          : null
+
+      networks[domain as ENetworks] = link
     }
 
     return networks

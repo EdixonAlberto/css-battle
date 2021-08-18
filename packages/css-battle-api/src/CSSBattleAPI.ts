@@ -14,7 +14,7 @@ class CSSBattleAPI {
         const nextData: string = $('#__NEXT_DATA__').get()[0].children[0].data
         const metaData: TMetadata = JSON.parse(nextData)
         const player: TPlayer = metaData.props.pageProps.player
-        const networks: TNetworks = getNetworks(player.links)
+        const networks: TNetworks | null = getNetworks(player.links)
 
         // Achievements
         const ranking: TRanking = await getRanking(player.id)
