@@ -2,9 +2,11 @@ const { src, dest, task, series } = require('gulp')
 const ts = require('gulp-typescript')
 const rimraf = require('gulp-rimraf')
 const prettier = require('gulp-prettier')
-const browserify = require('browserify')
-const { resolve } = require('path')
 const { createHeaderMessage } = require('./tools/createHeaderMessage')
+const gulpRimraf = require('gulp-rimraf')
+var browserify = require("browserify")
+var tsify = require("tsify")
+var source = require("vinyl-source-stream")
 
 // Task Format
 function format(done) {
@@ -31,18 +33,25 @@ function transpile(done) {
 }
 
 // Task Bundle
-// FIXME: La tarea bundle da error, se debe terminar
 function bundle(done) {
-  const pathBundle = resolve('dist', 'bundle')
-  const pathTemplate = resolve('tools', 'templateBundle.js')
+  const pathBundle = 'dist/bundle'
+  const pathTemplate = 'tools/templateBundle.js'
   const headerMessage = createHeaderMessage()
 
-  browserify(pathTemplate, { debug: true })
-    .bundle((err, beffer) => {
-      return `${headerMessage}\n${buffer}`
-    })
-    .pipe(dest(pathBundle))
-
+  browserify(pathTemplate, {
+    basedir: '.',
+    debug: false,
+    allowEmpty: true
+  })
+  .plugin(tsify)
+  .bundle((err, beffer) => {
+    if (err) {
+      console.error(err)
+    }
+    return `${headerMessage}\n${beffer}`
+  })
+  .pipe(source(pathBundle))
+  .pipe(dest(pathBundle))
   done()
 }
 
@@ -51,4 +60,4 @@ function minify(done) {
   done()
 }
 
-task('build', series(format, clean, transpile))
+task('build', series(format, clean, transpile, bundle))

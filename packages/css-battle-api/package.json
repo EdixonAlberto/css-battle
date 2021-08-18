@@ -25,6 +25,9 @@
     "cheerio": "^1.0.0-rc.10"
   },
   "devDependencies": {
+    "tsify": "^5.0.4",
+    "vinyl": "^2.2.1",
+    "vinyl-source-stream": "^2.0.0",
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.30",
     "@types/node": "^16.6.1",
