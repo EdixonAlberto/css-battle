@@ -1,6 +1,6 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "Client api to obtain public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
@@ -17,6 +17,7 @@
   "scripts": {
     "ts-build": "tsc --build",
     "dev": "nodemon -e ts -w src --exec \"yarn start\"",
+    "pre-publish": "yarn build && npm publish --dry-run",
     "build": "gulp build",
     "start": "yarn ts-build && node test.js"
   },
