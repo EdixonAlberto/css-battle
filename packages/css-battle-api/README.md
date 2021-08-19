@@ -85,9 +85,9 @@ type TRanking = {
 ## Contributing
 
 See
-[CONTRIBUTING.md](https://github.com/EdixonAlberto/monorepo-css-battle/raw/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/EdixonAlberto/monorepo-css-battle/blob/main/CONTRIBUTING.md)
 
 ## License
 
-[MIT](https://github.com/EdixonAlberto/monorepo-css-battle/raw/main/LICENSE) &copy; Edixon
-Piña
+[MIT](https://github.com/EdixonAlberto/monorepo-css-battle/blob/main/LICENSE) &copy;
+Edixon Piña

@@ -1,6 +1,6 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Client api to obtain public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
