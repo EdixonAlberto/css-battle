@@ -1,48 +1,35 @@
+// GULP MODULES
 const { src, dest, task, series } = require('gulp')
-const ts = require('gulp-typescript')
+const { createProject } = require('gulp-typescript')
 const rimraf = require('gulp-rimraf')
 const prettier = require('gulp-prettier')
-const browserify = require('browserify')
-const { resolve } = require('path')
-const { createHeaderMessage } = require('./tools/createHeaderMessage')
 
-// Task Format
+// OTHER MODULES
+const { createBundle } = require('./tools/createBundle')
+
+// TASK FORMAT
 function format(done) {
   src('src/**/.*ts').pipe(prettier()).pipe(dest('src'))
-
   done()
 }
 
-// Task Clean
+// TASK CLEAN
 function clean(done) {
-  src('./dist', { read: false }).pipe(rimraf({ force: true }))
-
+  src('dist', { read: false }).pipe(rimraf({ force: true }))
   done()
 }
 
-// Task Transpile
+// TASK TRANSPILE
 function transpile(done) {
-  const tsProject = ts.createProject('tsconfig.json')
-
+  const tsProject = createProject('tsconfig.json')
   const tsResult = tsProject.src().pipe(tsProject())
   tsResult.pipe(dest('dist'))
-
   done()
 }
 
-// Task Bundle
-// FIXME: La tarea bundle da error, se debe terminar
+// TASK BUNDLE
 function bundle(done) {
-  const pathBundle = resolve('dist', 'bundle')
-  const pathTemplate = resolve('tools', 'templateBundle.js')
-  const headerMessage = createHeaderMessage()
-
-  browserify(pathTemplate, { debug: true })
-    .bundle((err, beffer) => {
-      return `${headerMessage}\n${buffer}`
-    })
-    .pipe(dest(pathBundle))
-
+  createBundle()
   done()
 }
 
@@ -51,4 +38,4 @@ function minify(done) {
   done()
 }
 
-task('build', series(format, clean, transpile))
+task('build', series(format, clean, transpile, bundle))
