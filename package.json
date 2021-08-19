@@ -7,11 +7,13 @@
     "email": "edixonalbertto@gmail.com",
     "url": "https://www.edixonalberto.com"
   },
-  "contributes": {
-    "name": "Fairimax",
-    "email": "christian.fernando.paredes@gmail.com",
-    "url": "https://estudiophp.com"
-  },
+  "contributors": [
+    {
+      "name": "Fairimax",
+      "email": "christian.fernando.paredes@gmail.com",
+      "url": "https://estudiophp.com"
+    }
+  ],
   "workspaces": [
     "packages/*"
   ],
