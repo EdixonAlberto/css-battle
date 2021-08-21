@@ -15,7 +15,7 @@ class CheerioWrapper {
 
       return cheerio.load(data)
     } catch (error) {
-      console.error('ERRRO-CHEERIO ->', error.message)
+      console.error('ERROR-CHEERIO ->', error.message)
       throw new Error(error)
     }
   }

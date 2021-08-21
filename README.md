@@ -1,4 +1,4 @@
-# Monorepo CSS Battle
+# CSS Battle
 
 Monorepo with several projects related with the [CSS Battle](https://cssbattle.dev) page
 
@@ -6,11 +6,12 @@ Monorepo with several projects related with the [CSS Battle](https://cssbattle.d
 
 - NodeJS + Typescript
 - Yarn Workspaces
+- Gulp
 
 ## Packages
 
-- [CSS Battle API](./packages/css-battle-api): Client api to obtain **public** information
-  from the CSS Battle page
+- [CSS Battle API](./packages/css-battle-api): First API client to get **public**
+  information from the CSS Battle page
 
 ## Contributing
 

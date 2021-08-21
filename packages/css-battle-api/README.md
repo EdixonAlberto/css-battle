@@ -7,13 +7,18 @@
 [![](https://img.shields.io/badge/types-TypeScript-blue?style=for-the-badge)]()
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
-Client api to obtain **public** information from the [CSS Battle](https://cssbattle.dev)
-page. Created with NodeJS and Typescript, all types are exposed for use. &nbsp;
+First API client to get **public** information from the
+[CSS Battle](https://cssbattle.dev) page. Created with NodeJS and Typescript, all types
+are exposed for use. &nbsp;
 <img src="https://github.com/EdixonAlberto/monorepo-css-battle/raw/main/.github/img/typescript.png" width="20px" alt="Logo typescript" /> +
 💗
 
-> **Nota:** For now can only get the profile information of users, but later methods will
-> be created to obtain: "leader board", "battle targets", etc.
+> 📃 **NOTE:** For now can only get the profile information of users, but later methods
+> will be created to obtain: "leader board", "battle targets", etc.
+
+> ⚠️ **WARN:** Currently the api cannot be consumed from the frontend due to CORS
+> problems, but you can safely use it in a server environment for your backend
+> applications.
 
 ## Installation
 
@@ -25,7 +30,16 @@ npm install @edixon/css-battle-api
 
 - CDN
 
-Coming soon...
+⚠️ To be use of this bundle you must make use a proxy, soon this option will be added to
+the api itself.
+
+```html
+<!-- Bundle to development -->
+<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.2.8/dist/bundle/CSSBattleAPI.js"></script>
+
+<!-- Bundle optimized to production -->
+Change "CSSBattleAPI.js" for "CSSBattleAPI.min.js" to use the version minified
+```
 
 ## Usage
 
@@ -85,9 +99,8 @@ type TRanking = {
 ## Contributing
 
 See
-[CONTRIBUTING.md](https://github.com/EdixonAlberto/monorepo-css-battle/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/EdixonAlberto/css-battle/blob/main/CONTRIBUTING.md)
 
 ## License
 
-[MIT](https://github.com/EdixonAlberto/monorepo-css-battle/blob/main/LICENSE) &copy;
-Edixon Piña
+[MIT](https://github.com/EdixonAlberto/css-battle/blob/main/LICENSE) &copy; Edixon Piña

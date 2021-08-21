@@ -26,8 +26,8 @@ Coming soon...
 Before uploading changes create a new branch and add all commit there.
 
 ```sh
-git checkout -b __BRANCH_NAME__
+git checkout -b BRANCH_NAME
 git add .
 git commit -m "MESSAGE"
-git push origin __BRANCH_NAME__
+git push origin BRANCH_NAME
 ```
