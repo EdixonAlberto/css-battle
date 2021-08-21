@@ -1,9 +1,11 @@
-const { resolve } = require('path')
 const fs = require('fs')
+const { resolve } = require('path')
 
-module.exports.PATH_BASE = resolve('dist', 'bundle')
+const bandlePath = resolve('dist', 'bundle')
+const bandleFile = (extraName = '') =>
+  resolve('dist', 'bundle', `CSSBattleAPI${extraName}.js`)
 
-module.exports.createHeaderMessage = () => {
+const createHeaderMessage = () => {
   const pkgMain = JSON.parse(
     fs.readFileSync(resolve('../', '../', 'package.json'), 'utf8')
   )
@@ -16,4 +18,10 @@ module.exports.createHeaderMessage = () => {
 *   Copyright (c) 2020-${year} ${pkgMain.author.name}
 *   Released under the ${pkgApi.license} License.
 */`
+}
+
+module.exports = {
+  bandlePath,
+  bandleFile,
+  headerMessage: createHeaderMessage()
 }

@@ -1,25 +1,30 @@
 const fs = require('fs/promises')
 const { resolve } = require('path')
 const browserify = require('browserify')
-const { PATH_BASE, createHeaderMessage } = require('./helpers')
+const helpers = require('../tools/helpers')
 
-module.exports.createBundle = () => {
+module.exports.createBundle = async () => {
   const browserifyObject = browserify(resolve('tools', 'templateBundle.js'), {
     debug: true
   })
 
-  browserifyObject.bundle(async (err, buffer) => {
-    try {
-      if (err) throw new Error(err)
-      const code = `${createHeaderMessage()}\n${buffer}`
+  return new Promise((resolve, reject) => {
+    browserifyObject.bundle(async (err, buffer) => {
+      try {
+        if (err) throw new Error(err)
+        const code = `${helpers.headerMessage}\n${buffer}`
 
-      await fs.mkdir(PATH_BASE)
+        await fs.mkdir(helpers.bandlePath)
 
-      await fs.appendFile(resolve(PATH_BASE, 'CSSBattleAPI.js'), code, {
-        encoding: 'utf8'
-      })
-    } catch (error) {
-      console.error('ERROR-TASK-BUNDLE ->', error.message)
-    }
+        await fs.appendFile(helpers.bandleFile(), code, {
+          encoding: 'utf8'
+        })
+
+        resolve()
+      } catch (error) {
+        console.error('ERROR-TASK-BUNDLE ->', error.message)
+        reject(error)
+      }
+    })
   })
 }

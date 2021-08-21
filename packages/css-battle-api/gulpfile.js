@@ -3,6 +3,7 @@ const { src, dest, task, series } = require('gulp')
 const { createProject } = require('gulp-typescript')
 const rimraf = require('gulp-rimraf')
 const prettier = require('gulp-prettier')
+const gulpMinify = require('gulp-minify')
 
 // OTHER MODULES
 const { createBundle } = require('./tools/createBundle')
@@ -15,7 +16,7 @@ function format(done) {
 
 // TASK CLEAN
 function clean(done) {
-  src('dist', { read: false }).pipe(rimraf({ force: true }))
+  src('dist', { read: false }).pipe(rimraf())
   done()
 }
 
@@ -29,14 +30,19 @@ function transpile(done) {
 }
 
 // TASK BUNDLE
-function bundle(done) {
-  createBundle()
+async function bundle(done) {
+  await createBundle()
   done()
 }
 
-// TODO: crear tarea minify
+// TASK MINIFY
 function minify(done) {
+  const miniBundle = gulpMinify({
+    ext: { min: '.min.js' },
+    preserveComments: 'some'
+  })
+  src('dist/bundle/CSSBattleAPI.js').pipe(miniBundle).pipe(dest('dist/bundle'))
   done()
 }
 
-task('build', series(format, clean, transpile, bundle))
+task('build', series(format, clean, transpile, bundle, minify))
