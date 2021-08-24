@@ -16,7 +16,7 @@ function format(done) {
 
 // TASK CLEAN
 function clean(done) {
-  src('dist', { read: false }).pipe(rimraf())
+  src('dist', { read: false, allowEmpty: true }).pipe(rimraf())
   done()
 }
 
