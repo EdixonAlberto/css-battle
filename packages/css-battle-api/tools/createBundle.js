@@ -1,9 +1,8 @@
 const fs = require('fs/promises')
 const { resolve } = require('path')
 const browserify = require('browserify')
-const helpers = require('../tools/helpers')
 
-module.exports.createBundle = async () => {
+module.exports.createBundle = async ({ bundlePath, headerMessage }) => {
   const browserifyObject = browserify(resolve('tools', 'templateBundle.js'), {
     debug: true
   })
@@ -12,11 +11,11 @@ module.exports.createBundle = async () => {
     browserifyObject.bundle(async (err, buffer) => {
       try {
         if (err) throw new Error(err)
-        const code = `${helpers.headerMessage}\n${buffer}`
+        const code = `${headerMessage}\n${buffer}`
 
-        await fs.mkdir(helpers.bandlePath)
+        await fs.mkdir(bundlePath.base)
 
-        await fs.appendFile(helpers.bandleFile(), code, {
+        await fs.appendFile(bundlePath.file, code, {
           encoding: 'utf8'
         })
 

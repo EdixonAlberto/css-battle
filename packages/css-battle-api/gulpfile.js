@@ -7,6 +7,9 @@ const gulpMinify = require('gulp-minify')
 
 // OTHER MODULES
 const { createBundle } = require('./tools/createBundle')
+const helpers = require('./tools/helpers')
+
+const bundlePath = helpers.bundlePath
 
 // TASK FORMAT
 function format(done) {
@@ -31,17 +34,17 @@ function transpile(done) {
 
 // TASK BUNDLE
 async function bundle(done) {
-  await createBundle()
+  await createBundle(helpers)
   done()
 }
 
 // TASK MINIFY
 function minify(done) {
-  const miniBundle = gulpMinify({
+  const bundleMini = gulpMinify({
     ext: { min: '.min.js' },
     preserveComments: 'some'
   })
-  src('dist/bundle/CSSBattleAPI.js').pipe(miniBundle).pipe(dest('dist/bundle'))
+  src(bundlePath.file).pipe(bundleMini).pipe(dest(bundlePath.base))
   done()
 }
 

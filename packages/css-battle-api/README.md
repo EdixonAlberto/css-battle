@@ -34,11 +34,8 @@ npm install @edixon/css-battle-api
 the api itself.
 
 ```html
-<!-- Bundle to development -->
-<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.2.8/dist/bundle/CSSBattleAPI.js"></script>
-
 <!-- Bundle optimized to production -->
-Change "CSSBattleAPI.js" for "CSSBattleAPI.min.js" to use the version minified
+<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.3.0/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
 
 ## Usage

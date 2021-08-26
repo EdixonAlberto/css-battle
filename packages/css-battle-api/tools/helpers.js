@@ -1,9 +1,8 @@
 const fs = require('fs')
 const { resolve } = require('path')
 
-const bandlePath = resolve('dist', 'bundle')
-const bandleFile = (extraName = '') =>
-  resolve('dist', 'bundle', `CSSBattleAPI${extraName}.js`)
+const bundleBase = resolve('dist', 'bundle')
+const bundleFile = resolve(bundleBase, 'CSSBattleAPI.js')
 
 const createHeaderMessage = () => {
   const pkgMain = JSON.parse(
@@ -21,7 +20,9 @@ const createHeaderMessage = () => {
 }
 
 module.exports = {
-  bandlePath,
-  bandleFile,
+  bundlePath: {
+    base: bundleBase,
+    file: bundleFile
+  },
   headerMessage: createHeaderMessage()
 }
