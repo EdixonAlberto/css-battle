@@ -16,7 +16,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "ts-build": "tsc --build",
-    "dev": "nodemon -e ts -w src --exec \"yarn start\"",
+    "dev": "nodemon -e ts -w src --exec \"yarn ts-build && yarn start\"",
     "pre-publish": "yarn build && npm publish --dry-run",
     "build": "gulp build && gulp minify",
     "start": "yarn ts-build && node test.js"
