@@ -1,4 +1,5 @@
 type TConfig = {
+  modeDev: boolean
   urlBase: string
   urlProxy: string
 }
