@@ -1,8 +1,0 @@
-# FOLDERS
-.vscode/
-node_modules/
-dist/
-docs/
-
-# FILES
-*.log

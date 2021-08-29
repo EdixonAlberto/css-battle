@@ -7,9 +7,8 @@ const gulpMinify = require('gulp-minify')
 
 // OTHER MODULES
 const { createBundle } = require('./tools/createBundle')
-const helpers = require('./tools/helpers')
 
-const bundlePath = helpers.bundlePath
+const BUNDLE_PATH = 'dist/bundle'
 
 // TASK FORMAT
 function format(done) {
@@ -33,19 +32,20 @@ function transpile(done) {
 }
 
 // TASK BUNDLE
-async function bundle(done) {
-  await createBundle(helpers)
+function bundle(done) {
+  createBundle().pipe(dest(BUNDLE_PATH))
   done()
 }
 
 // TASK MINIFY
-function minify(done) {
+task('minify', () => {
   const bundleMini = gulpMinify({
     ext: { min: '.min.js' },
     preserveComments: 'some'
   })
-  src(bundlePath.file).pipe(bundleMini).pipe(dest(bundlePath.base))
-  done()
-}
+  return src(BUNDLE_PATH + '/*js')
+    .pipe(bundleMini)
+    .pipe(dest(BUNDLE_PATH))
+})
 
-task('build', series(format, clean, transpile, bundle, minify))
+task('build', series(format, clean, transpile, bundle))

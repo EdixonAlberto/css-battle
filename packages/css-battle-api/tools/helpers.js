@@ -1,9 +1,6 @@
 const fs = require('fs')
 const { resolve } = require('path')
 
-const bundleBase = resolve('dist', 'bundle')
-const bundleFile = resolve(bundleBase, 'CSSBattleAPI.js')
-
 const createHeaderMessage = () => {
   const pkgMain = JSON.parse(
     fs.readFileSync(resolve('../', '../', 'package.json'), 'utf8')
@@ -16,13 +13,10 @@ const createHeaderMessage = () => {
 *   ${pkgApi.description}
 *   Copyright (c) 2020-${year} ${pkgMain.author.name}
 *   Released under the ${pkgApi.license} License.
-*/`
+*/
+`
 }
 
 module.exports = {
-  bundlePath: {
-    base: bundleBase,
-    file: bundleFile
-  },
   headerMessage: createHeaderMessage()
 }

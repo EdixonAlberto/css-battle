@@ -18,7 +18,7 @@
     "ts-build": "tsc --build",
     "dev": "nodemon -e ts -w src --exec \"yarn start\"",
     "pre-publish": "yarn build && npm publish --dry-run",
-    "build": "gulp build",
+    "build": "gulp build && gulp minify",
     "start": "yarn ts-build && node test.js"
   },
   "dependencies": {
@@ -29,14 +29,17 @@
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.30",
     "browserify": "^17.0.0",
+    "browserify-banner": "^2.0.4",
     "gulp": "^4.0.2",
+    "gulp-header-comment": "^0.9.0",
     "gulp-minify": "^3.1.0",
     "gulp-prettier": "^4.0.0",
     "gulp-rimraf": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "vinyl-source-stream": "^2.0.0"
   },
   "homepage": "https://github.com/EdixonAlberto/css-battle/tree/main/packages/css-battle-api#readme",
   "repository": {

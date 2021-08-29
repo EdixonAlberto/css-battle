@@ -1,29 +1,14 @@
-const fs = require('fs/promises')
 const { resolve } = require('path')
 const browserify = require('browserify')
+const banner = require('browserify-banner')
+const source = require('vinyl-source-stream')
+const { headerMessage } = require('../tools/helpers')
 
-module.exports.createBundle = async ({ bundlePath, headerMessage }) => {
-  const browserifyObject = browserify(resolve('tools', 'templateBundle.js'), {
+module.exports.createBundle = () => {
+  return browserify(resolve('tools', 'templateBundle.js'), {
     debug: true
   })
-
-  return new Promise((resolve, reject) => {
-    browserifyObject.bundle(async (err, buffer) => {
-      try {
-        if (err) throw new Error(err)
-        const code = `${headerMessage}\n${buffer}`
-
-        await fs.mkdir(bundlePath.base)
-
-        await fs.appendFile(bundlePath.file, code, {
-          encoding: 'utf8'
-        })
-
-        resolve()
-      } catch (error) {
-        console.error('ERROR-TASK-BUNDLE ->', error.message)
-        reject(error)
-      }
-    })
-  })
+    .plugin(banner, { banner: headerMessage })
+    .bundle()
+    .pipe(source('CSSBattleAPI.js'))
 }
