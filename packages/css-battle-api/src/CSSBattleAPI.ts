@@ -1,12 +1,14 @@
-import { Interceptor } from './services/Interceptor'
+import { InterceptorAxios } from './services/InterceptorAxios'
 import { loadCheerio } from './helpers/loadCheerio'
 import { getNetworks, getRanking } from './helpers/getProperties'
-import { TNetworks, TProfile, TRanking } from './types'
-
-new Interceptor()
+import { TNetworks, TProfile, TRanking, TConfig } from './types'
 
 class CSSBattleAPI {
-  public static async profile(username: string): Promise<TProfile | null> {
+  constructor(config?: TConfig) {
+    new InterceptorAxios(config?.proxy)
+  }
+
+  public async profile(username: string): Promise<TProfile | null> {
     try {
       const $ = await loadCheerio(`/player/${username}`)
 

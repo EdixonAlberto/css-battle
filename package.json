@@ -18,6 +18,7 @@
     "packages/*"
   ],
   "scripts": {
-    "api": "yarn workspace @edixon/css-battle-api"
+    "api": "yarn workspace @edixon/css-battle-api",
+    "proxy": "yarn workspace proxy"
   }
 }

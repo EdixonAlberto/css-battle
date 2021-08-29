@@ -46,3 +46,5 @@ type TRank = {
   totalPlayers: number
   score: number
 }
+
+type TProxy = import('../types').TConfig['proxy']

@@ -21,3 +21,9 @@ export type TRanking = {
   totalScore: number
   battlesPlayed: number
 }
+
+export type TConfig =
+  | undefined
+  | {
+      proxy: boolean | string
+    }
