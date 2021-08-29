@@ -5,7 +5,7 @@ class InterceptorAxios {
   private readonly URL_BASE_DEFAULT = global.config.urlBase
   private readonly URL_PROXY_DEFAULT = global.config.urlProxy
 
-  constructor(proxy: TProxy, private baseUrl?: string) {
+  constructor(proxy?: TProxy, private baseUrl?: string) {
     // Proxy in false by default
     this.baseUrl = this.getUrl(proxy, baseUrl)
     axios.defaults.timeout = 1_000 * 10

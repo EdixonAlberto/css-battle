@@ -7,8 +7,12 @@ import { TNetworks, TProfile, TRanking, TConfig } from './types'
 
 class CSSBattleAPI {
   constructor(config?: TConfig) {
-    loadConfig()
-    new InterceptorAxios(config?.proxy)
+    try {
+      loadConfig()
+      new InterceptorAxios(config?.proxy)
+    } catch (error) {
+      throw createErrorMsg('ERROR-CONFIG', error.message)
+    }
   }
 
   public async profile(username: string): Promise<TProfile> {

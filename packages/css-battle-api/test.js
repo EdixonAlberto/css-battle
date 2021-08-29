@@ -1,7 +1,14 @@
 const { CSSBattleAPI } = require('./dist')
 
-const CSSBattle = new CSSBattleAPI()
+async function test() {
+  try {
+    const CSSBattle = new CSSBattleAPI()
+    const profile = await CSSBattle.profile('edixon')
 
-CSSBattle.profile('edixon')
-  .then(profile => console.log(profile))
-  .catch(error => console.error(error))
+    console.log(profile)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+test()
