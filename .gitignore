@@ -1,0 +1,9 @@
+# FOLDERS
+.vscode/
+node_modules/
+dist/
+docs/
+
+# FILES
+*.log
+index.html
