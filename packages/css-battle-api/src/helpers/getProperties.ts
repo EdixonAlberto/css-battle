@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import { TNetworks, TRanking } from '../types'
 import { ENetworks } from '../entities/enumerations'
 
@@ -24,9 +24,7 @@ export function getNetworks(links?: TLink): TNetworks | null {
 }
 
 export async function getRanking(userId: string): Promise<TRanking> {
-  const { data }: AxiosResponse<TRank | null> = await axios.get(
-    `/api/getRank?userId=${userId}`
-  )
+  const { data }: TResponseOK<TRank> = await axios.get(`/api/getRank?userId=${userId}`)
 
   if (data) {
     return {
@@ -35,5 +33,5 @@ export async function getRanking(userId: string): Promise<TRanking> {
       totalScore: data.score,
       battlesPlayed: data.playedCount
     }
-  } else throw new Error('Could not get rank')
+  } else throw 'Could not get user ranking'
 }

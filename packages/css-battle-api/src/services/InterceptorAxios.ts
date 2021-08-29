@@ -1,17 +1,18 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import { createErrorMsg } from '../helpers/createErrorMsg'
 
 class InterceptorAxios {
   private readonly URL_BASE_DEFAULT = global.config.urlBase
   private readonly URL_PROXY_DEFAULT = global.config.urlProxy
 
-  constructor(proxy: TProxy = false, private baseUrl?: string) {
+  constructor(proxy: TProxy, private baseUrl?: string) {
     // Proxy in false by default
     this.baseUrl = this.getUrl(proxy, baseUrl)
     axios.defaults.timeout = 1_000 * 5
     this.interceptorsInit()
   }
 
-  private getUrl(proxy: TProxy, _baseUrl?: string): string {
+  private getUrl(proxy: TProxy = false, _baseUrl?: string): string {
     let url: string = ''
     const baseUrl = _baseUrl || this.URL_BASE_DEFAULT
 
@@ -30,8 +31,9 @@ class InterceptorAxios {
         return config
       },
       (error: AxiosError) => {
-        console.error('ERROR-REQUEST-AXIOS ->', error.message)
-        return null
+        // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
+        console.error(createErrorMsg('ERROR-REQUEST-AXIOS', error))
+        return { data: null }
       }
     )
 
@@ -39,8 +41,9 @@ class InterceptorAxios {
     axios.interceptors.response.use(
       (response: AxiosResponse) => response,
       (error: AxiosError) => {
-        console.error('ERROR-RESPONSE-AXIOS ->', error.message)
-        return { status: error.response?.status || 500, data: null }
+        // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
+        console.error(createErrorMsg('ERROR-RESPONSE-AXIOS', error))
+        return { data: null }
       }
     )
   }
