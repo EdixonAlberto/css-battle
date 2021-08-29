@@ -24,21 +24,16 @@ export function getNetworks(links?: TLink): TNetworks | null {
 }
 
 export async function getRanking(userId: string): Promise<TRanking> {
-  try {
-    const { status, data }: AxiosResponse<TRank> = await axios.get(
-      `https://cssbattle.dev/api/getRank?userId=${userId}`
-    )
+  const { data }: AxiosResponse<TRank | null> = await axios.get(
+    `/api/getRank?userId=${userId}`
+  )
 
-    if (status === 200) {
-      return {
-        rank: data.rank,
-        totalPlayers: data.totalPlayers,
-        totalScore: data.score,
-        battlesPlayed: data.playedCount
-      }
-    } else throw new Error('ERROR-REQUEST-GET-RANK')
-  } catch (error) {
-    console.error('ERROR-GET-RANKING', error.message)
-    throw new Error(error)
-  }
+  if (data) {
+    return {
+      rank: data.rank,
+      totalPlayers: data.totalPlayers,
+      totalScore: data.score,
+      battlesPlayed: data.playedCount
+    }
+  } else throw new Error('Could not get rank')
 }

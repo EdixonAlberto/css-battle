@@ -1,13 +1,14 @@
-import { CheerioWrapper } from './modules/CheerioWrapper'
+import { Interceptor } from './services/Interceptor'
+import { loadCheerio } from './helpers/loadCheerio'
 import { getNetworks, getRanking } from './helpers/getProperties'
 import { TNetworks, TProfile, TRanking } from './types'
 
-const cheerioWrapper = new CheerioWrapper('https://cssbattle.dev')
+new Interceptor()
 
 class CSSBattleAPI {
   public static async profile(username: string): Promise<TProfile | null> {
     try {
-      const $ = await cheerioWrapper.load(`/player/${username}`)
+      const $ = await loadCheerio(`/player/${username}`)
 
       if ($) {
         // User info
@@ -28,7 +29,6 @@ class CSSBattleAPI {
           networks,
           ranking
         }
-
         return profile
       } else return null
     } catch (error) {
