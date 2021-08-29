@@ -1,6 +1,6 @@
 import corsAnywhere from 'cors-anywhere'
 
-const CORS_PROXY_PORT = 5000
+const CORS_PROXY_PORT: number = Number(process.env.PORT) || 5000
 
 // CORS Anywhere
 corsAnywhere

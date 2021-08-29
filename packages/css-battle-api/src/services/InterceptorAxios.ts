@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 
 class InterceptorAxios {
-  private readonly URL_BASE_DEFAULT = 'https://cssbattle.dev'
-  private readonly URL_PROXY_DEFAULT = 'http://localhost:5000/'
+  private readonly URL_BASE_DEFAULT = global.config.urlBase
+  private readonly URL_PROXY_DEFAULT = global.config.urlProxy
 
   constructor(proxy: TProxy = false, private baseUrl?: string) {
     // Proxy in false by default
@@ -27,8 +27,6 @@ class InterceptorAxios {
       async (config: AxiosRequestConfig) => {
         config.baseURL = this.baseUrl
         config.headers.common['Content-Type'] = 'application/json'
-        console.table([config.baseURL, config.url])
-
         return config
       },
       (error: AxiosError) => {

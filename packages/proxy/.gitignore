@@ -1,0 +1,7 @@
+# FOLDERS
+node_modules/
+dist/
+
+# FILES
+*.log
+*.tsbuildinfo
