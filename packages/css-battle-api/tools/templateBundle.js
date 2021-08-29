@@ -1,1 +1,2 @@
-global.CSSBattleAPI = require('../dist/CSSBattleAPI').CSSBattleAPI
+const { CSSBattleAPI } = require('../dist')
+global.CSSBattleAPI = CSSBattleAPI

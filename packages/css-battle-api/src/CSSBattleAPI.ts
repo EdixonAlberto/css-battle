@@ -1,10 +1,12 @@
 import { InterceptorAxios } from './services/InterceptorAxios'
 import { loadCheerio } from './helpers/loadCheerio'
 import { getNetworks, getRanking } from './helpers/getProperties'
+import { loadConfig } from './helpers/loadConfig'
 import { TNetworks, TProfile, TRanking, TConfig } from './types'
 
 class CSSBattleAPI {
   constructor(config?: TConfig) {
+    loadConfig()
     new InterceptorAxios(config?.proxy)
   }
 
