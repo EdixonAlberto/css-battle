@@ -8,7 +8,7 @@ class InterceptorAxios {
   constructor(proxy: TProxy, private baseUrl?: string) {
     // Proxy in false by default
     this.baseUrl = this.getUrl(proxy, baseUrl)
-    axios.defaults.timeout = 1_000 * 5
+    axios.defaults.timeout = 1_000 * 10
     this.interceptorsInit()
   }
 
