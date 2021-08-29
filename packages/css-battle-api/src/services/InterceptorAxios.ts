@@ -12,12 +12,24 @@ class InterceptorAxios {
     this.interceptorsInit()
   }
 
+  // TODO: Usar un helper para crear la URL y en este verificar la estructura URI del proxy
   private getUrl(proxy: TProxy = false, _baseUrl?: string): string {
     let url: string = ''
-    const baseUrl = _baseUrl || this.URL_BASE_DEFAULT
+    const baseUrl: string = _baseUrl || this.URL_BASE_DEFAULT
+    // format custom proxy
+    const removeSlash = (urlSlash: string): string => {
+      const len: number = urlSlash.length - 1
 
-    if (typeof proxy === 'string') url = proxy + baseUrl
-    else url = proxy ? this.URL_PROXY_DEFAULT + baseUrl : baseUrl
+      if (urlSlash[len] === '/') {
+        const _urlSlash = urlSlash.substr(0, len)
+        return removeSlash(_urlSlash)
+      } else return urlSlash
+    }
+
+    if (typeof proxy === 'string') {
+      const customProxy: string = removeSlash(proxy)
+      url = `${customProxy}/${baseUrl}`
+    } else url = proxy ? `${this.URL_PROXY_DEFAULT}/${baseUrl}` : baseUrl
 
     return url
   }
@@ -28,11 +40,16 @@ class InterceptorAxios {
       async (config: AxiosRequestConfig) => {
         config.baseURL = this.baseUrl
         config.headers.common['Content-Type'] = 'application/json'
+        if (global.config.modeDev) {
+          console.log(createErrorMsg('LOG-REQUEST', `${config.baseURL}/${config.url}`))
+        }
         return config
       },
       (error: AxiosError) => {
         // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
-        console.error(createErrorMsg('ERROR-REQUEST-AXIOS', error))
+        if (global.config.modeDev) {
+          console.error(createErrorMsg('ERROR-REQUEST-AXIOS', error))
+        }
         return { data: null }
       }
     )
@@ -42,7 +59,9 @@ class InterceptorAxios {
       (response: AxiosResponse) => response,
       (error: AxiosError) => {
         // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
-        console.error(createErrorMsg('ERROR-RESPONSE-AXIOS', error))
+        if (global.config.modeDev) {
+          console.error(createErrorMsg('ERROR-RESPONSE-AXIOS', error))
+        }
         return { data: null }
       }
     )
