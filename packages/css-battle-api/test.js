@@ -1,9 +1,7 @@
-const { CSSBattleClass } = require('./dist')
+const { CSSBattleAPI } = require('./dist')
 
-const CSSBattleAPI = new CSSBattleClass({
-  proxy: false
-})
+const CSSBattle = new CSSBattleAPI()
 
-CSSBattleAPI.profile('edixon').then(profile => {
+CSSBattle.profile('edixon').then(profile => {
   console.log(profile)
 })
