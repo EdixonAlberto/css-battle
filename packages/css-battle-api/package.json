@@ -15,7 +15,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "prettier --write ./src/**/*.ts",
     "ts-build": "tsc --build",
     "dev": "nodemon -e ts -w src --exec \"yarn ts-build && yarn start\"",
     "pre-publish": "yarn build && npm publish --dry-run",
@@ -39,7 +38,6 @@
     "gulp-rimraf": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.12",
-    "prettier": "^2.3.2",
     "typescript": "^4.3.5",
     "vinyl-source-stream": "^2.0.0"
   },

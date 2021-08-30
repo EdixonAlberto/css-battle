@@ -18,7 +18,23 @@
     "packages/*"
   ],
   "scripts": {
+    "lint": "prettier --write ./*.{js,md} ./packages/**/*.{js,ts}",
     "api": "yarn workspace @edixon/css-battle-api",
     "proxy": "yarn workspace proxy"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts, js}": [
+      "yarn lint",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.2",
+    "prettier": "^2.3.2"
   }
 }
