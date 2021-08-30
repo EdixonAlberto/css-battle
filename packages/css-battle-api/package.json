@@ -1,6 +1,6 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "0.3.2",
+  "version": "0.7.1",
   "description": "First API client to get public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
@@ -16,10 +16,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "ts-build": "tsc --build",
-    "dev": "nodemon -e ts -w src --exec \"yarn start\"",
+    "dev": "nodemon -e ts -w src --exec \"yarn ts-build && yarn start\"",
     "pre-publish": "yarn build && npm publish --dry-run",
     "build": "gulp build && gulp minify",
-    "start": "yarn ts-build && node test.js"
+    "start": "cross-env NODE_ENV=development node test.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -30,6 +30,7 @@
     "@types/cheerio": "^0.22.30",
     "browserify": "^17.0.0",
     "browserify-banner": "^2.0.4",
+    "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
     "gulp-header-comment": "^0.9.0",
     "gulp-minify": "^3.1.0",
@@ -37,7 +38,6 @@
     "gulp-rimraf": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "nodemon": "^2.0.12",
-    "prettier": "^2.3.2",
     "typescript": "^4.3.5",
     "vinyl-source-stream": "^2.0.0"
   },

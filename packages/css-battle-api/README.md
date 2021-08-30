@@ -16,9 +16,8 @@ are exposed for use. &nbsp;
 > 📃 **NOTE:** For now can only get the profile information of users, but later methods
 > will be created to obtain: "leader board", "battle targets", etc.
 
-> ⚠️ **WARN:** Currently the api cannot be consumed from the frontend due to CORS
-> problems, but you can safely use it in a server environment for your backend
-> applications.
+> 📃 **NOTE:** To be able to use api from a frontend app, you must use a proxy, the
+> library comes with one by default, it is on a free server so don't expect quick results.
 
 ## Installation
 
@@ -30,36 +29,49 @@ npm install @edixon/css-battle-api
 
 - CDN
 
-⚠️ To be use of this bundle you must make use a proxy, soon this option will be added to
-the api itself.
-
 ```html
 <!-- Bundle optimized to production -->
-<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.3.0/dist/bundle/CSSBattleAPI.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.5.0/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
 
 ## Usage
 
+We require the library and we get the `CSSBattleAPI` class, then we create an instance to
+use the query methods.
+
 ```js
 const { CSSBattleAPI } = require('@edixon/css-battle-api')
 
-CSSBattleAPI.profile('USERNAME').then(profile => {
+const CSSBattle = new CSSBattleAPI()
+
+CSSBattle.profile('USERNAME').then(profile => {
   console.log(profile.ranking.totalScore) // Total score obtained in CSS Battle
 })
 ```
 
-Using typescript and async/await.
+You can also pass a configuration object to the class to set a proxy and be able to use of
+the client side api. Can enter a `URL` or `true` to use the default proxy.
+
+```js
+const CSSBattle = new CSSBattleAPI({
+  proxy: /* boolean | string */
+})
+```
+
+Using typescript, async/await and try/catch.
+
+When an error cccurs a string `error` is returned, is a friendly message that describe the
+cause of the error in the query.
 
 ```ts
 import { CSSBattleAPI, TRanking } from '@edixon/css-battle-api'
 
-async function getRanking(username: string): Promise<TRanking | null> {
+async function getRanking(username: string): Promise<TRanking> {
   try {
-    const profile = await CSSBattleAPI.profile(username)
+    const { ranking } = await new CSSBattleAPI().profile(username)
 
-    return profile?.ranking || null
+    return ranking
   } catch (error) {
-    console.error('ERROR ->', error.message)
     throw new Error(error)
   }
 }

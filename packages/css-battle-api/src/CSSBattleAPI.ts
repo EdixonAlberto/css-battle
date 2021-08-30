@@ -1,19 +1,30 @@
-import { CheerioWrapper } from './modules/CheerioWrapper'
+import { InterceptorAxios } from './services/InterceptorAxios'
+import { loadCheerio } from './helpers/loadCheerio'
 import { getNetworks, getRanking } from './helpers/getProperties'
-import { TNetworks, TProfile, TRanking } from './types'
-
-const cheerioWrapper = new CheerioWrapper('https://cssbattle.dev')
+import { loadConfig } from './helpers/loadConfig'
+import { createErrorMsg } from './helpers/createErrorMsg'
+import { TNetworks, TProfile, TRanking, TConfig } from './types'
 
 class CSSBattleAPI {
-  public static async profile(username: string): Promise<TProfile | null> {
+  constructor(config?: TConfig) {
     try {
-      const $ = await cheerioWrapper.load(`/player/${username}`)
+      loadConfig()
+      new InterceptorAxios(config?.proxy)
+    } catch (error) {
+      throw createErrorMsg('ERROR-CONFIG', error.message)
+    }
+  }
 
-      if ($) {
-        // User info
-        const nextData: string = $('#__NEXT_DATA__').get()[0].children[0].data
-        const metaData: TMetadata = JSON.parse(nextData)
-        const player: TPlayer = metaData.props.pageProps.player
+  public async profile(username: string): Promise<TProfile> {
+    try {
+      const $ = await loadCheerio(`/player/${username}`)
+
+      // User info
+      const nextData: string = $('#__NEXT_DATA__').get()[0].children[0].data
+      const metaData: TMetadata = JSON.parse(nextData)
+      const player: TPlayer = metaData.props.pageProps.player
+
+      if (player.username) {
         const networks: TNetworks | null = getNetworks(player.links)
 
         // Achievements
@@ -30,10 +41,9 @@ class CSSBattleAPI {
         }
 
         return profile
-      } else return null
-    } catch (error) {
-      console.error('ERROR-API ->', error.message)
-      return null
+      } else throw 'User profile does not exist'
+    } catch (errorMessage) {
+      throw createErrorMsg('ERROR-API', errorMessage)
     }
   }
 }
