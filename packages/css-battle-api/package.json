@@ -18,7 +18,7 @@
     "ts-build": "tsc --build",
     "dev": "nodemon -e ts -w src --exec \"yarn ts-build && yarn start\"",
     "pre-publish": "yarn build && npm publish --dry-run",
-    "build": "gulp build && gulp minify",
+    "build": "gulp build && gulp bundle && gulp minify",
     "start": "cross-env NODE_ENV=development node test.js"
   },
   "dependencies": {

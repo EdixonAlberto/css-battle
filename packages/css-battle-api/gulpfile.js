@@ -32,10 +32,9 @@ function transpile(done) {
 }
 
 // TASK BUNDLE
-function bundle(done) {
-  createBundle().pipe(dest(BUNDLE_PATH))
-  done()
-}
+task('bundle', () => {
+  return createBundle().pipe(dest(BUNDLE_PATH))
+})
 
 // TASK MINIFY
 task('minify', () => {
@@ -48,4 +47,4 @@ task('minify', () => {
     .pipe(dest(BUNDLE_PATH))
 })
 
-task('build', series(format, clean, transpile, bundle))
+task('build', series(format, clean, transpile))
