@@ -31,7 +31,7 @@ npm install @edixon/css-battle-api
 
 ```html
 <!-- Bundle optimized to production -->
-<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.5.0/dist/bundle/CSSBattleAPI.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.2/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
 
 ## Usage
