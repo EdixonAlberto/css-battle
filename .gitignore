@@ -7,3 +7,4 @@ docs/
 # FILES
 *.log
 index.html
+*.tsbuildinfo

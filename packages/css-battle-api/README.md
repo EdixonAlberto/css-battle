@@ -31,7 +31,7 @@ npm install @edixon/css-battle-api
 
 ```html
 <!-- Bundle optimized to production -->
-<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.2/dist/bundle/CSSBattleAPI.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.3/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
 
 ## Usage
@@ -60,7 +60,7 @@ const CSSBattle = new CSSBattleAPI({
 
 Using typescript, async/await and try/catch.
 
-When an error cccurs a string `error` is returned, is a friendly message that describe the
+When an error occurs a string `error` is returned, is a friendly message that describe the
 cause of the error in the query.
 
 ```ts

@@ -26,8 +26,7 @@ function clean(done) {
 function transpile(done) {
   const tsProject = createProject('tsconfig.json')
   const tsResult = tsProject.src().pipe(tsProject())
-  tsResult.dts.pipe(dest('dist/@types'))
-  tsResult.js.pipe(dest('dist'))
+  tsResult.pipe(dest('dist'))
   done()
 }
 
