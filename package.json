@@ -21,7 +21,8 @@
     "lint": "prettier --write ./*.{js,md} ./packages/**/*.{js,ts}",
     "prepare": "husky install",
     "api": "yarn workspace @edixon/css-battle-api",
-    "proxy": "yarn workspace proxy"
+    "proxy": "yarn workspace proxy",
+    "shield": "yarn workspace shield"
   },
   "devDependencies": {
     "husky": "^7.0.0",
