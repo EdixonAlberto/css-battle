@@ -9,6 +9,7 @@
     "deploy": "git push heroku main -f"
   },
   "dependencies": {
+    "@edixon/css-battle-api": "^0.7.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1"
   },
