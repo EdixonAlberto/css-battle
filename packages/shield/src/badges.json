@@ -1,22 +1,22 @@
 [
   {
     "name": " -",
-    "template": "badge-star",
+    "template": "ranks/star",
     "color": "#0F1117"
   },
   {
     "name": "1st",
-    "template": "badge-gold",
+    "template": "ranks/gold",
     "color": "#363517"
   },
   {
     "name": "2nd",
-    "template": "badge-silver",
+    "template": "ranks/silver",
     "color": "#2D3134"
   },
   {
     "name": "3rd",
-    "template": "badge-bronze",
+    "template": "ranks/bronze",
     "color": "#322B24"
   }
 ]
