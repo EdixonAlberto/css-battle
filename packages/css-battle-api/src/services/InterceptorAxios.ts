@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
-import { createErrorMsg } from '../helpers/createErrorMsg'
+import { createErrorMsg } from '../helpers'
 
 class InterceptorAxios {
   private readonly URL_BASE_DEFAULT = global.config.urlBase

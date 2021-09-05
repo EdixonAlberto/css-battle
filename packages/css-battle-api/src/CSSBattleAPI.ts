@@ -1,8 +1,5 @@
 import { InterceptorAxios } from './services/InterceptorAxios'
-import { loadCheerio } from './helpers/loadCheerio'
-import { getNetworks, getRanking } from './helpers/getProperties'
-import { loadConfig } from './helpers/loadConfig'
-import { createErrorMsg } from './helpers/createErrorMsg'
+import { loadCheerio, properties, createErrorMsg, loadConfig } from './helpers'
 import { TNetworks, TProfile, TRanking, TConfig } from './types'
 
 class CSSBattleAPI {
@@ -25,10 +22,10 @@ class CSSBattleAPI {
       const player: TPlayer = metaData.props.pageProps.player
 
       if (player.username) {
-        const networks: TNetworks | null = getNetworks(player.links)
+        const networks: TNetworks | null = properties.getNetworks(player.links)
 
         // Achievements
-        const ranking: TRanking = await getRanking(player.id)
+        const ranking: TRanking = await properties.getRanking(player.id)
 
         const profile: TProfile = {
           avatar: player.avatar,
