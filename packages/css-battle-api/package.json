@@ -16,8 +16,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "ts-build": "tsc --build",
-    "dev": "nodemon -e ts -w src --exec \"yarn ts-build && yarn start\"",
-    "pre-publish": "yarn build && yarn start && npm publish --dry-run",
+    "dev": "nodemon --config nodemon.json",
+    "try-publish": "yarn build && yarn start && npm publish --dry-run",
     "build": "gulp build && gulp bundle && gulp minify",
     "start": "cross-env NODE_ENV=development node test.js"
   },
