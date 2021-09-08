@@ -8,7 +8,7 @@ class CSSBattleAPI {
       loadConfig()
       new InterceptorAxios(config?.proxy)
     } catch (error) {
-      throw createErrorMsg('ERROR-CONFIG', error.message)
+      throw createErrorMsg('ERROR-CONFIG', error)
     }
   }
 
@@ -39,8 +39,8 @@ class CSSBattleAPI {
 
         return profile
       } else throw 'User profile does not exist'
-    } catch (errorMessage) {
-      throw createErrorMsg('ERROR-API', errorMessage)
+    } catch (error) {
+      throw createErrorMsg('ERROR-API', error)
     }
   }
 }
