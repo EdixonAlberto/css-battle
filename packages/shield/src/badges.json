@@ -1,22 +1,25 @@
 [
   {
     "name": " -",
-    "template": "ranks/star",
-    "color": "#0F1117"
+    "template": "star",
+    "backColor": "#323F4A"
   },
   {
     "name": "1st",
-    "template": "ranks/gold",
-    "color": "#363517"
+    "template": "gold",
+    "color": "#FFDF00",
+    "backColor": "#363517"
   },
   {
     "name": "2nd",
-    "template": "ranks/silver",
-    "color": "#2D3134"
+    "template": "silver",
+    "color": "#C0C0C0",
+    "backColor": "#2D3134"
   },
   {
     "name": "3rd",
-    "template": "ranks/bronze",
-    "color": "#322B24"
+    "template": "bronze",
+    "color": "#CD7F32",
+    "backColor": "#322B24"
   }
 ]

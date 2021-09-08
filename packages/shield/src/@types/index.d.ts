@@ -1,5 +1,6 @@
 type TQuery = {
   username?: string
-  style?: 'leader' | 'basic' | 'flat'
-  size?: 'small' | 'medium' | 'large'
+  style?: 'flat' | 'flat-big' | 'leader'
+  color?: string
+  textColor?: string
 }
