@@ -1,12 +1,13 @@
 {
   "name": "shield",
   "version": "0.0.1",
+  "description": "Service that generates legible logos in SVG format related to the page of CSS Battle which you can easily include in your readme of Github or on another website.",
   "private": true,
   "scripts": {
     "dev": "nodemon -e ts,json -w src --exec \"yarn build && yarn start\"",
     "build": "tsc --build",
     "start": "node dist",
-    "deploy": "git push heroku main -f"
+    "deploy": "git add . && git commit --amend --no-edit && git push heroku main -f"
   },
   "dependencies": {
     "@edixon/css-battle-api": "^0.7.2",
