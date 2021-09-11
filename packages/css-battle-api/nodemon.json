@@ -1,11 +1,9 @@
 {
   "watch": [
-    "."
+    "src",
+    "tests"
   ],
-  "ext": "ts,js",
-  "ignore": [
-    "./dist",
-    "./node_modules"
-  ],
-  "exec": "yarn ts-build && yarn start"
+  "ext": "ts",
+  "ignore": [],
+  "exec": "yarn start"
 }

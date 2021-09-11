@@ -4,6 +4,7 @@ const { createProject } = require('gulp-typescript')
 const rimraf = require('gulp-rimraf')
 const prettier = require('gulp-prettier')
 const gulpMinify = require('gulp-minify')
+const jest = require('gulp-jest').default
 
 // OTHER MODULES
 const { createBundle } = require('./tools/createBundle')
@@ -29,6 +30,18 @@ function transpile(done) {
   tsResult.pipe(dest('dist'))
   done()
 }
+
+// TASK TEST
+task('test', () => {
+  return src('tests').pipe(
+    jest({
+      preprocessorIgnorePatterns: ['./dist/', './node_modules/'],
+      automock: false,
+      preset: 'ts-jest',
+      testTimeout: 10000
+    })
+  )
+})
 
 // TASK BUNDLE
 task('bundle', () => {

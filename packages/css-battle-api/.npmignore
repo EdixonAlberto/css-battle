@@ -8,6 +8,5 @@ tests/
 gulpfile.js
 tsconfig.json
 *.log
-test.js
 dist/bundle/CSSBattleAPI.js
 index.html
