@@ -21,7 +21,6 @@ class InterceptorAxios {
         return config
       },
       (error: AxiosError) => {
-        // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
         if (global.config.modeDev) {
           console.error(createErrorMsg('ERROR-REQUEST-AXIOS', error))
         }
@@ -33,7 +32,6 @@ class InterceptorAxios {
     axios.interceptors.response.use(
       (response: AxiosResponse) => response,
       (error: AxiosError) => {
-        // TODO: Evitar exponer los errores de axios, mostrarlos solo en desarrollo
         if (global.config.modeDev) {
           console.error(createErrorMsg('ERROR-RESPONSE-AXIOS', error))
         }
