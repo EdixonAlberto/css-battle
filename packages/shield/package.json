@@ -10,9 +10,10 @@
     "deploy": "git add . && git commit --amend --no-edit && git push heroku main -f"
   },
   "dependencies": {
-    "@edixon/css-battle-api": "^0.7.2",
+    "@edixon/css-battle-api": "^0.7.3",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

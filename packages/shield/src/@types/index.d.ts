@@ -1,6 +1,6 @@
 type TQuery = {
-  username?: string
-  style?: 'flat' | 'flat-big' | 'leader'
-  color?: string
-  textColor?: string
+  username: string
+  style: import('../data/enumerations').Styles
+  color: string
+  textColor: string
 }
