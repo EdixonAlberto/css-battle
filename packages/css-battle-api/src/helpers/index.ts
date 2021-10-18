@@ -1,5 +1,5 @@
 export { loadCheerio } from './loadCheerio'
-export { properties } from './properties'
+export * as properties from './properties'
 export { createErrorMsg } from './createErrorMsg'
 export { loadConfig } from './loadConfig'
 export { getUrl } from './formatData'

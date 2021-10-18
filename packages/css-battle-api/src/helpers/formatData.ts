@@ -1,4 +1,4 @@
-function getUrl(proxy: TProxy = false): string {
+export function getUrl(proxy: TProxy = false): string {
   const URL_BASE_DEFAULT = global.config.urlBase
   const URL_PROXY_DEFAULT = global.config.urlProxy
   let url: string = ''
@@ -12,5 +12,3 @@ function getUrl(proxy: TProxy = false): string {
 
   return url
 }
-
-export { getUrl }

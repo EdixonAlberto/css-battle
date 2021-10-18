@@ -2,7 +2,7 @@ import axios from 'axios'
 import { TNetworks, TRanking } from '../types'
 import { ENetworks } from '../entities/enumerations'
 
-function getNetworks(links?: TLink): TNetworks | null {
+export function getNetworks(links?: TLink): TNetworks | null {
   if (links) {
     let networks = {} as TNetworks
 
@@ -23,7 +23,7 @@ function getNetworks(links?: TLink): TNetworks | null {
   } else return null
 }
 
-async function getRanking(userId: string): Promise<TRanking> {
+export async function getRanking(userId: string): Promise<TRanking> {
   const { data }: TResponseOK<TRank> = await axios.get(`/api/getRank?userId=${userId}`)
 
   if (data) {
@@ -35,10 +35,3 @@ async function getRanking(userId: string): Promise<TRanking> {
     }
   } else throw 'Could not get user ranking'
 }
-
-const properties = {
-  getNetworks,
-  getRanking
-}
-
-export { properties }

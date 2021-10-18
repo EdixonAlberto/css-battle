@@ -4,7 +4,7 @@
 [![](https://img.shields.io/npm/v/@edixon/css-battle-api?color=CB0000&style=for-the-badge)](https://npmjs.com/package/@edixon/css-battle-api)
 [![](https://img.shields.io/npm/dt/@edixon/css-battle-api?color=8956FF&style=for-the-badge)](https://npmjs.com/package/@edixon/css-battle-api)
 
-[![](https://img.shields.io/badge/types-TypeScript-blue?style=for-the-badge)]()
+[![](https://img.shields.io/badge/types-TypeScript-blue?style=for-the-badge)](https://github.com/microsoft/TypeScript)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 First API client to get **public** information from the
@@ -42,9 +42,9 @@ use the query methods.
 ```js
 const { CSSBattleAPI } = require('@edixon/css-battle-api')
 
-const CSSBattle = new CSSBattleAPI()
+const CBA = new CSSBattleAPI()
 
-CSSBattle.profile('USERNAME').then(profile => {
+CBA.profile('USERNAME').then(profile => {
   console.log(profile.ranking.totalScore) // Total score obtained in CSS Battle
 })
 ```
@@ -53,7 +53,7 @@ You can also pass a configuration object to the class to set a proxy and be able
 the client side api. Can enter a `URL` or `true` to use the default proxy.
 
 ```js
-const CSSBattle = new CSSBattleAPI({
+const CBA = new CSSBattleAPI({
   proxy: /* boolean | string */
 })
 ```
