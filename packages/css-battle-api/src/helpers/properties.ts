@@ -30,7 +30,7 @@ export async function getRanking(userId: string): Promise<TRanking> {
     return {
       rank: data.rank,
       totalPlayers: data.totalPlayers,
-      totalScore: data.score,
+      totalScore: Number(data.score.toFixed(2)),
       battlesPlayed: data.playedCount
     }
   } else throw 'Could not get user ranking'

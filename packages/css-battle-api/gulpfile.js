@@ -38,7 +38,7 @@ task('test', () => {
       preprocessorIgnorePatterns: ['./dist/', './node_modules/'],
       automock: false,
       preset: 'ts-jest',
-      testTimeout: 10000
+      testTimeout: 1000 * 60
     })
   )
 })

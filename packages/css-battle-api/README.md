@@ -1,6 +1,6 @@
 # CSS Battle API
 
-[![](https://img.shields.io/badge/author-Edixon_Piña-green?style=for-the-badge)](https://edixonalberto.com)
+[![](https://img.shields.io/badge/author-Edixon_Piña-green?style=for-the-badge)](https://github.com/EdixonAlberto)
 [![](https://img.shields.io/npm/v/@edixon/css-battle-api?color=CB0000&style=for-the-badge)](https://npmjs.com/package/@edixon/css-battle-api)
 [![](https://img.shields.io/npm/dt/@edixon/css-battle-api?color=8956FF&style=for-the-badge)](https://npmjs.com/package/@edixon/css-battle-api)
 
@@ -33,6 +33,10 @@ npm install @edixon/css-battle-api
 <!-- Bundle optimized to production -->
 <script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.3/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
+
+- DEMO
+
+
 
 ## Usage
 
