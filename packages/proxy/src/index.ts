@@ -1,6 +1,5 @@
 import express from 'express'
 import proxy from 'express-http-proxy'
-import apicache from 'apicache'
 
 const CORS_PROXY_PORT: number = Number(process.env.PORT) || 5000
 const APP_PORT = process.env.PORT || 8080

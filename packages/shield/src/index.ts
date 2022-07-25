@@ -15,7 +15,7 @@ const TIME_WINDOW = 20 // time in seconds
 app.set('view engine', 'ejs')
 
 // MIDDLEWARE
-// Rate limit
+// - Rate limit
 app.use(
   ratelimit({
     windowMs: TIME_WINDOW * 1000, // time window to continue with the requests
@@ -23,7 +23,7 @@ app.use(
     message: `Your limit exceeded, await ${TIME_WINDOW}s to continue` // message to display when max is exceeded
   })
 )
-// Handler query
+// - Handler query
 app.use((req: Request, res: Response, next: NextFunction): void => {
   const { username, style } = req.query as TQuery
 
@@ -33,10 +33,7 @@ app.use((req: Request, res: Response, next: NextFunction): void => {
       res.header('Content-Type', 'text/html')
       res
         .status(404)
-        .send(
-          'Parameter "style" not found, these are the available ones: ' +
-            '"flat" | "flat-big" | "leader"'
-        )
+        .send('Parameter "style" not found, these are the available ones: ' + '"flat" | "flat-big" | "leader"')
     }
   } else {
     res.header('Content-Type', 'text/html')
@@ -51,14 +48,17 @@ app.get('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const { ranking } = await CBA.profile(username)
 
+    if (ranking.rank > 3) ranking.rank = 0
+
     const badge = badges[ranking.rank]
     const rank = `${badge.name} / ${ranking.totalPlayers}`
-    const score = ranking.totalScore.toFixed(2)
+    const score = ranking.totalScore
     const data = { rank, score, badge }
 
     res.header('Content-Type', 'image/svg+xml')
     res.render(style, data)
   } catch (error) {
+    console.error('ERROR-SHIELD ->', (error as Error).message)
     res.status(500).send(error)
   }
 })

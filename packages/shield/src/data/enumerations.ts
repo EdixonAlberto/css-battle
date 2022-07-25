@@ -1,5 +1,5 @@
 export enum Styles {
   flat = 'flat',
-  flatBig = 'flat-big',
+  'flat-big' = 'flat-big',
   leader = 'leader'
 }
