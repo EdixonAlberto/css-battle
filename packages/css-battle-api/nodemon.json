@@ -1,9 +1,0 @@
-{
-  "watch": [
-    "src",
-    "tests"
-  ],
-  "ext": "ts",
-  "ignore": [],
-  "exec": "yarn start"
-}

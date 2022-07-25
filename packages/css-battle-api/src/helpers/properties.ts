@@ -9,12 +9,7 @@ export function getNetworks(links?: TLink): TNetworks | null {
     for (const domain in ENetworks) {
       const username = links[domain as ENetworks] || null
 
-      const link =
-        domain === ENetworks.website
-          ? username
-          : username
-          ? `https://${domain}.com/${username}`
-          : null
+      const link = domain === ENetworks.website ? username : username ? `https://${domain}.com/${username}` : null
 
       networks[domain as ENetworks] = link
     }

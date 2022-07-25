@@ -1,6 +1,6 @@
 {
   "name": "@edixon/css-battle-api",
-  "version": "0.7.7",
+  "version": "0.7.8",
   "description": "First API client to get public information from the CSS Battle page",
   "license": "MIT",
   "private": false,
@@ -17,10 +17,19 @@
   "scripts": {
     "ts-build": "tsc --build",
     "test": "cross-env NODE_ENV=development gulp test",
-    "dev": "nodemon --config nodemon.json",
+    "dev": "nodemon --config",
     "try-publish": "yarn build && npm publish --dry-run",
     "build": "gulp build && gulp test && gulp bundle && gulp minify",
     "start": "yarn ts-build && yarn test"
+  },
+  "nodemonConfig": {
+    "ext": ".ts",
+    "watch": [
+      "src",
+      "tests"
+    ],
+    "verbose": false,
+    "exec": "yarn start"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -50,5 +59,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/EdixonAlberto/css-battle/tree/main/packages/css-battle-api"
+  },
+  "engines": {
+    "node": "^16.15.1",
+    "yarn": "~1.22.15"
   }
 }

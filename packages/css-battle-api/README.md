@@ -7,17 +7,18 @@
 [![](https://img.shields.io/badge/types-TypeScript-blue?style=for-the-badge)](https://github.com/microsoft/TypeScript)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
-First API client to get **public** information from the
-[CSS Battle](https://cssbattle.dev) page. Created with NodeJS and Typescript, all types
-are exposed for use. &nbsp;
+First API client to get **public** information from the [CSS Battle](https://cssbattle.dev) page. Created with NodeJS
+and Typescript, all types are exposed for use. &nbsp;
 <img src="https://github.com/EdixonAlberto/monorepo-css-battle/raw/main/.github/img/typescript.png" width="20px" alt="Logo typescript" /> +
 💗
 
-> 📃 **NOTE:** For now can only get the profile information of users, but later methods
-> will be created to obtain: "leader board", "battle targets", etc.
+> 📃 **NOTE:** For now can only get the profile information of users, but later methods will be created to obtain:
+> "leader board", "battle targets", etc.
 
-> 📃 **NOTE:** To be able to use api from a frontend app, you must use a proxy, the
-> library comes with one by default, it is on a free server so don't expect quick results.
+> 📃 **NOTE:** To be able to use api from a frontend app, you must use a proxy, the library comes with one by default,
+> it is on a free server so don't expect quick results.
+
+## Example: [shield to Github &#x279c;](https://github.com/EdixonAlberto/css-battle/tree/main/packages/shield)
 
 ## Installation
 
@@ -34,14 +35,9 @@ npm install @edixon/css-battle-api
 <script src="https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.3/dist/bundle/CSSBattleAPI.min.js"></script>
 ```
 
-- DEMO
-
-
-
 ## Usage
 
-We require the library and we get the `CSSBattleAPI` class, then we create an instance to
-use the query methods.
+We require the library and we get the `CSSBattleAPI` class, then we create an instance to use the query methods.
 
 ```js
 const { CSSBattleAPI } = require('@edixon/css-battle-api')
@@ -53,8 +49,8 @@ CBA.profile('USERNAME').then(profile => {
 })
 ```
 
-You can also pass a configuration object to the class to set a proxy and be able to use of
-the client side api. Can enter a `URL` or `true` to use the default proxy.
+You can also pass a configuration object to the class to set a proxy and be able to use of the client side api. Can
+enter a `URL` or `true` to use the default proxy.
 
 ```js
 const CBA = new CSSBattleAPI({
@@ -64,8 +60,8 @@ const CBA = new CSSBattleAPI({
 
 Using typescript, async/await and try/catch.
 
-When an error occurs a string `error` is returned, is a friendly message that describe the
-cause of the error in the query.
+When an error occurs a string `error` is returned, is a friendly message that describe the cause of the error in the
+query.
 
 ```ts
 import { CSSBattleAPI, TRanking } from '@edixon/css-battle-api'
@@ -111,8 +107,7 @@ type TRanking = {
 
 ## Contributing
 
-See
-[CONTRIBUTING.md](https://github.com/EdixonAlberto/css-battle/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/EdixonAlberto/css-battle/blob/main/CONTRIBUTING.md)
 
 ## License
 
