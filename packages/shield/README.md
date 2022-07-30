@@ -10,9 +10,7 @@ can easily include in your readme of Github or on another website.
 ## Demo
 
 <!-- production -->
-
-[![shield](https://shield-css-battle.herokuapp.com?username=edixon&style=flat-big)](https://cssbattle.dev/player/edixon)
+![shield](https://shield-css-battle.herokuapp.com?username=edixon&style=flat-big)
 
 <!-- development -->
-
 <!-- ![image](http://localhost:5001?username=edixon&style=leader) -->
