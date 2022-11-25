@@ -1,0 +1,42 @@
+<div t1>
+<div t2>
+<style>
+body {
+  margin:0;
+  background:#F2F2B6;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+div,div:before {
+  width:0;
+  height:0;
+  position:relative;
+  border-left:75px solid transparent;
+  border-right:75px solid transparent;
+  border-top:130px solid #FF6D00
+}
+[t1] {
+  z-index:1;
+  border-top-color:#FD4602
+}
+[t1],[t1]:before {
+  transform:translateX(-45px)
+}
+[t2] {
+  transform:translate(35px,-130px)rotate(180deg)
+}
+[t1]:before,[t2]:before {
+  content:'';
+  position:absolute;
+  top:-130px;
+  border-top-color:#FD4602
+}
+[t1]:before {
+  left:-50px;
+  border-top-color:#FF6D00
+}
+[t2]:before {
+  left:-55px
+}
+</style>
