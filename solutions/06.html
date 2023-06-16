@@ -1,0 +1,38 @@
+<body bgcolor="#E3516E">
+  <div c>
+    <div c1></div>
+    <div c2></div>
+    <div c3></div>
+  </div>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    [c] {
+      display: grid;
+      grid-template-rows: repeat(2, 100px);
+      grid-template-columns: repeat(2, 100px)
+    }
+
+    div>div {
+      width: 100px;
+      height: 100px;
+      border-radius: 100% 0 0 0
+    }
+
+    [c1] {
+      background: #51B5A9;
+    }
+
+    [c2] {
+      background: #FADE8B;
+      transform: rotate(90deg)
+    }
+
+    [c3] {
+      background: #F7F3D7;
+      transform: rotate(-90deg)
+    }

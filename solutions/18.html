@@ -1,0 +1,46 @@
+<body bgcolor=#5C434C style="margin:10">
+  <div row>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div row>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div row>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <style>
+    body {
+      display: grid;
+      row-gap: 20px
+    }
+
+    [row] {
+      display: grid;
+      grid-template-rows: 80px;
+      grid-template-columns: repeat(4, 80px);
+      column-gap: 20px
+    }
+
+    div {
+      width: 80px;
+      height: 80px;
+      background: #F5D6B4;
+      border-radius: 100% 0 0 0
+    }
+
+    [row]:nth-child(odd) div:nth-child(odd) {
+      background: #F09462
+    }
+
+    [row]:nth-child(2) div:nth-child(even) {
+      background: #F09462
+    }

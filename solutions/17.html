@@ -1,43 +1,53 @@
 <body bgcolor=#09042A style=margin:0>
-<div>
-<div c c3></div>
-<div r>
-<div c c1></div>
-<div c c2></div>
-</div>
-<div c c4>
-</div>
-<style>
-body,[r]{
-display:flex;
-align-items:center;
-justify-content:center
-}
-[r] {
-width:auto;
-height:60px;
-justify-content:center;
-column-gap:40px;
-background:#E78481;
-border-radius:30px
-}
-[c] {
-width:60px;
-height:60px;
-border-radius:50%
-}
-[c1],[c2]{
-background:#09042A;
-border: 10px solid #E78481
-}
-[c3],[c4]{
-background:#F5BB9C;
-border: 10px solid #09042A
-}
-[c3]{
-transform: translate(60px,17px)
-}
-[c4]{
-transform: translate(60px,-17px)
-}
-</style>
+  <div>
+    <div c c3></div>
+    <div r>
+      <div c c1></div>
+      <div c c2></div>
+    </div>
+    <div c c4>
+    </div>
+    <style>
+      body,
+      [r] {
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+
+      [r]:in-range(even) {
+        width: auto;
+        height: 60px;
+        justify-content: center;
+        column-gap: 40px;
+        background: #E78481;
+        border-radius: 30px
+      }
+
+      [c] {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%
+      }
+
+      [c1],
+      [c2] {
+        background: #09042A;
+        border: 10px solid #E78481
+      }
+
+      [c3],
+      [c4] {
+        background: #F5BB9C;
+        border: 10px solid #09042A
+      }
+
+      [c3] {
+        transform: translate(60px, 17px)
+      }
+
+      [c4] {
+        transform: translate(60px, -17px)
+      }
+
+    </style>
