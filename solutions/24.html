@@ -1,0 +1,39 @@
+<body bgcolor=#62306D>
+  <div></div>
+  <div>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        bottom: 50px;
+        border-radius: 50% 50% 0 0;
+        background: #AA445F
+      }
+
+      div:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50px;
+        background: #F7EC7D;
+        border-radius: 50%
+      }
+
+      div:nth-child(2) {
+        top: 50px;
+        border-radius: 0 0 50% 50%;
+        background: #E38F66
+      }
+
+      div:nth-child(2):before {
+        top: -50px
+      }

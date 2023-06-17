@@ -1,0 +1,42 @@
+<body bgcolor=#1A4341>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(2, 50px);
+        justify-content: center;
+        align-content: center;
+        gap: 20px
+      }
+
+      div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #F3AC3C
+      }
+
+      div:nth-child(1),
+      div:nth-child(3),
+      div:nth-child(6),
+      div:nth-child(8) {
+        background: #998235
+      }
+
+      div:nth-child(2),
+      div:nth-child(3) {
+        border-radius: 50% 50% 0 0
+      }
+
+      div:nth-child(5),
+      div:nth-child(8) {
+        border-radius: 0 0 50% 50%
+      }
